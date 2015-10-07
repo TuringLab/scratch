@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('turingScratch',['ngRoute','ngPostMessage']);
+angular.module('turingScratch',['config','ngRoute','ngPostMessage']);

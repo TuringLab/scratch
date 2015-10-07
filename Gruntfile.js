@@ -15,6 +15,7 @@ module.exports = function (grunt) {
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
+    ngconstant:  'grunt-ng-constant',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
@@ -73,7 +74,7 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35728
       },
       livereload: {
         options: {
@@ -346,6 +347,31 @@ module.exports = function (grunt) {
       }
     },
 
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '\'use strict\';\n\n {%= __ngModule %}',
+        name: 'config',
+        dest: '<%= yeoman.app %>/scripts/app.config.js'
+      },
+      development: {
+        constants: {
+          config: {
+            name: 'development',
+            cardsUrl: 'http://localhost:8100/'
+          }
+        }
+      },
+      production: {
+        constants: {
+          config: {
+            name: 'production',
+            cardsUrl: 'https://turing-cards.herokuapp.com/'
+          }
+        }
+      }
+    },
+
     ngtemplates: {
       dist: {
         options: {
@@ -454,6 +480,7 @@ module.exports = function (grunt) {
       'less',
       'wiredep',
       'injector',
+      'ngconstant:development',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
@@ -482,6 +509,7 @@ module.exports = function (grunt) {
     'less',
     'wiredep',
     'injector',
+    'ngconstant:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

@@ -1,17 +1,14 @@
 'use strict';
 
-angular.module('turingScratch').controller('MainController',['$scope',function($scope){
+angular.module('turingScratch').controller('MainController',['$scope','$sce','config',function($scope,$sce,config){
 
-  $scope.test = "HELLO WORLD";
-  $scope.messages = [];
+  $scope.cardsUrl = $sce.trustAsResourceUrl(config.cardsUrl);
+  $scope.scratchUrl = $sce.trustAsResourceUrl('https://scratch.mit.edu/projects/editor/');
+
   $scope.$root.$on('$messageIncoming', function (event, data){
-    $scope.messages.push(angular.fromJson(data));
+    $scope.scratchUrl = $sce.trustAsResourceUrl(data.scratchUrl);
+    console.log($scope.scratchUrl);
   });
-  $scope.sendMessage = function (){
-    $scope.$emit(
-      '$messageOutgoing',
-      angular.toJson({"response":"hi"})
-    );
-  };
+
 
 }]);
