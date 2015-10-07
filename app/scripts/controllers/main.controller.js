@@ -10,5 +10,4 @@ angular.module('turingScratch').controller('MainController',['$scope','$sce','co
     console.log($scope.scratchUrl);
   });
 
-
 }]);

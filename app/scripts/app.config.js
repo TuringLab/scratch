@@ -2,6 +2,6 @@
 
  angular.module('config', [])
 
-.constant('config', {name:'development',cardsUrl:'http://localhost:8100/'})
+.constant('config', {name:'production',cardsUrl:'https://turing-cards.herokuapp.com/'})
 
 ;
