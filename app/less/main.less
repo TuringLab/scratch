@@ -7,3 +7,60 @@
 // // =============================
 
 @import "bower_components/turing-style/less/main.less";
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 4px;
+}
+
+.turing-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@space: 0;
+@header: 0;
+
+.turing-bar {
+    margin: 0;
+    padding: 0px 10px;
+    overflow: auto;
+    height: @header;
+}
+
+.turing-title {
+    position: relative;
+}
+
+.turing-content {
+    overflow: hidden;
+    position: absolute;
+    top: @header;
+    left: @space;
+    right: @space;
+    bottom: @space;
+}
+
+.block {
+	height: 100%;
+	display: inline-block;
+}
+
+.cards {
+	&:extend(.block);
+	width: 33%
+}
+
+.scratch {
+	&:extend(.block);
+	width: 66%
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
