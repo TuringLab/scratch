@@ -3,17 +3,12 @@
 <!-- <iframe src="https://turing-cards.herokuapp.com"></iframe> -->
 
 
-<div class='cards'>
-    <iframe ng-src="{{cardsUrl}}"></iframe>
+<div class="block" ng-class='cards.getClass()'>
+    <iframe ng-src="{{cards.url}}"></iframe>
 </div>
-<div class='scratch'>
-    <iframe ng-src="{{scratchUrl}}"></iframe>
+<button class="btn btn-primary toggle-float" ng-click="cards.toggle()">
+	<i class="fa pull-right" ng-class="button.getClass()"></i>
+</button>
+<div class="block" ng-class='scratch.getClass()'>
+    <iframe ng-src="{{scratch.url}}"></iframe>
 </div>
-
-<!-- <iframe src="https://rawgit.com/kylewelsby/585b3a5395c6731acc50/raw/f661e856adbccf39549ed7c550661f09158f8d55/index.html"></iframe>
-<br>
-<button ng-click="sendMessage();">Send response</button>
-<br>
-<ol>
-  <li ng-repeat="message in messages">{{message}}</li>
-</ol> -->

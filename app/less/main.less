@@ -31,18 +31,34 @@ iframe {
     padding: 0;
 }
 
+.toggle-float {
+	position: absolute;
+	top: 30%;
+	height: 100px;
+	width: 40px;
+	// margin-left: -10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
 .block {
 	height: 100%;
 	display: inline-block;
 }
 
-.cards {
-	&:extend(.block);
+.hidden {
+	display: hidden;
+}
+
+.small {
 	width: 30%;
 }
 
-.scratch {
-	&:extend(.block);
+.large {
 	width: 70%;
 	float: right;
+}
+
+.full {
+	width: 100%;
 }
