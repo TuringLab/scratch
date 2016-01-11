@@ -1,11 +1,19 @@
 'use strict';
 
-angular.module('turingScratch').controller('MainController',['$scope','$sce','config',function($scope,$sce,config){
+angular.module('turingScratch').controller('MainController',['$scope','$routeParams','$sce','config',function($scope,$routeParams,$sce,config){
 
 	var show = true;
+  console.log($routeParams);
+
+  var cardsUrl = config.cardsUrl
+  if ($routeParams.provider){
+    cardsUrl += '#/projects?provider=';
+    cardsUrl += $routeParams.provider;
+  }
+  console.log(cardsUrl);
 
   $scope.cards = {
-  	url : $sce.trustAsResourceUrl(config.cardsUrl),
+  	url : $sce.trustAsResourceUrl(cardsUrl),
   	toggle : function(){
 			show = !show;
 		},
@@ -19,7 +27,7 @@ angular.module('turingScratch').controller('MainController',['$scope','$sce','co
   };
 
   $scope.scratch = {
-  	url: $sce.trustAsResourceUrl('https://scratch.mit.edu/projects/editor/'),
+  	url: $sce.trustAsResourceUrl('https://scratch.mit.edu/mystuff/'),
   	getClass: function(){
   		if (show){
   			return 'large';
