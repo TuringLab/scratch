@@ -28,7 +28,7 @@ angular.module('turingScratch').controller('MainController',['$scope','$routePar
   };
 
   $scope.scratch = {
-  	url: $sce.trustAsResourceUrl('https://scratch.mit.edu/mystuff/'),
+  	url: $sce.trustAsResourceUrl('http://turinglab.co.uk'),
   	getClass: function(){
   		if (show){
   			return 'large';
