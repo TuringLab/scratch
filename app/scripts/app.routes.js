@@ -2,12 +2,9 @@
 
 angular.module('turingScratch').config(['$routeProvider',function($routeProvider){
     $routeProvider
-        .when('/:provider?',{
+        .when('/:provider/:language?',{
             templateUrl : 'views/main.html',
             controller: 'MainController'
         })
-        .otherwise({
-            templateUrl : 'views/main.html',
-            controller: 'MainController'
-        });
+        .otherwise({redirectTo : '/TuringLab'})
 }]);

@@ -5,12 +5,13 @@ angular.module('turingScratch').controller('MainController',['$scope','$routePar
 	var show = true;
   console.log($routeParams);
 
-  var cardsUrl = config.cardsUrl
+  var cardsUrl = config.cardsUrl + '#/projects/'
   if ($routeParams.provider){
-    cardsUrl += '#/projects?provider=';
-    cardsUrl += $routeParams.provider;
+    cardsUrl += ($routeParams.provider + '/');
+    if ($routeParams.language){
+      cardsUrl += ($routeParams.language + '/');
+    }
   }
-  console.log(cardsUrl);
 
   $scope.cards = {
   	url : $sce.trustAsResourceUrl(cardsUrl),
